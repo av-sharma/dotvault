@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+# Generates a scp command for a file or directory.
+# Usage: genscp filename/directory
+
+user=$(whoami)
+hostname=$(hostname)
+path=$(readlink -f $1)
+
+cmd="scp ${user}@${hostname}:${path}"
+echo $cmd

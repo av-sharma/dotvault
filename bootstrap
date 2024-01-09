@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+#
+# To install and setup the dotfiles.
+# Usage: bootstrap
+
+DOTFILES_ROOT=$(pwd -P)
+
+install_dotfiles() {
+    echo 'Installing dotfiles...'
+
+    {
+        read
+        read
+        while IFS= read -r line; do
+            IFS=':'
+            read -ra line <<< "$line"
+            src=${line[0]}
+            dst=${line[1]/\$HOME/"${HOME}"}
+            mv "$dst" "${dst}.bak"
+            echo "Backuped $dst to ${dst}.bak."
+            rm -rf "$dst"
+            echo "Removed $dst."
+            ln -s "$DOTFILES_ROOT$src" "$dst"
+            echo "Linked $DOTFILES_ROOT$src to $dst."
+        done
+    } < $DOTFILES_ROOT/symlinks
+
+}
+
+install_dotfiles
+
+echo ''
+echo 'DONE!'

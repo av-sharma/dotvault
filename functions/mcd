@@ -1,0 +1,5 @@
+# Create and change into a new directory
+function mcd() {
+  mkdir -p "$*"
+  cd "$*" || exit
+}

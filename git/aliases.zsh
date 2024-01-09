@@ -1,0 +1,8 @@
+alias gs='git status'
+alias gb='git branch'
+alias gl='git log'
+alias gco='git checkout'
+alias gap='git add --patch'
+alias gd='git diff'
+alias gc='git commit'
+alias gf='git fetch origin --prune'

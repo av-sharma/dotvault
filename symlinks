@@ -1,0 +1,4 @@
+# list of files to symlink to $HOME
+# src:dest
+/zsh/.zshrc:$HOME/.zshrc
+/nvim/init.vim:$HOME/.config/nvim/init.vim
